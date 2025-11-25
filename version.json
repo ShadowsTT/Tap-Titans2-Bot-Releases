@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "release_date": "2025-01-25",
+  "download_url": "https://github.com/ShadowsTT/Tap-Titans2-Bot-Releases/releases/latest/download/TapTitans2Bot.exe",
+  "changelog": [
+    "Initial release",
+    "Auto buy skills",
+    "Auto prestige",
+    "Hero management",
+    "Auto-update system"
+  ],
+  "min_required_version": "1.0.0",
+  "force_update": false
+}
+
