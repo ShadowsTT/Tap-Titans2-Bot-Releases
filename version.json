@@ -1,10 +1,8 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "release_date": "2025-11-26",
-  "download_url": "https://github.com/ ShadowsTT/Tap-Titans2-Bot-Releases/releases/latest/download/TapTitans2Bot.exe",
-  "changelog": [
-    "See release notes for details"
-  ],
+  "download_url": "https://github.com/ShadowsTT/Tap-Titans2-Bot-Releases/releases/latest/download/TapTitans2Bot.exe",
+  "changelog": [],
   "min_required_version": "1.0.0",
   "force_update": false
 }
