@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Set up Tap Titans 2 Bot on Windows, macOS and Linux. Connect your Android phone over USB and start auto tap in a few steps.">
+<title>Set up in 5 minutes · Tap Titans 2 Bot</title>
+<link rel="canonical" href="https://shadowstt.github.io/Tap-Titans2-Bot-Releases/setup.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tap Titans 2 Bot">
+<meta property="og:title" content="Set up in 5 minutes · Tap Titans 2 Bot">
+<meta property="og:description" content="Set up Tap Titans 2 Bot on Windows, macOS and Linux. Connect your Android phone over USB and start auto tap in a few steps.">
+<meta property="og:url" content="https://shadowstt.github.io/Tap-Titans2-Bot-Releases/setup.html">
+<meta property="og:image" content="https://shadowstt.github.io/Tap-Titans2-Bot-Releases/media/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tap Titans 2 Bot for Windows, macOS and Linux, with gameplay captured on an Android phone">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script type="module" src="site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><img src="icon.svg" alt="Tap Titans 2 Bot logo" width="36" height="36"><span>Tap Titans 2 Bot</span></a>
+  <nav class="site" aria-label="Site"><ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="download.html">Download</a></li>
+    <li><a href="setup.html" aria-current="page">Setup</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul></nav>
+</div></header>
+<main id="main" tabindex="-1">
+<section class="page-masthead" aria-labelledby="setup-title"><div class="wrap">
+  <p class="eyebrow">From download to first tap</p>
+  <h1 id="setup-title">Set up in 5 minutes</h1>
+  <p class="lead">Tap Titans 2 Bot runs on Windows, macOS and Linux and controls your Android phone over USB. Start with your phone, then follow the steps for your computer.</p>
+</div></section>
+<section class="wrap section how-section" aria-labelledby="phone-title">
+  <div><p class="eyebrow">Your phone</p><h2 id="phone-title">Connect Android</h2></div>
+  <ol class="steps">
+    <li><h3>Turn on Developer options</h3><p>On the phone, open Settings &gt; About phone &gt; Software information. Tap “Build number” seven times.</p></li>
+    <li><h3>Turn on USB debugging</h3><p>Open Settings &gt; Developer options and turn on “USB debugging”.</p></li>
+    <li><h3>Plug in the phone</h3><p>Use a USB data cable. On the phone, tap Allow on “Allow USB debugging?” and tick “Always allow from this computer”. These steps were tested on a Samsung Galaxy S8+; other Android phones name the menus slightly differently.</p></li>
+  </ol>
+</section>
+<section class="band panel-band" aria-labelledby="install-title"><div class="wrap how-section">
+  <div><p class="eyebrow">Your computer</p><h2 id="install-title">Install the app</h2><p>Use the file for your operating system from the <a href="download.html">download page</a>. Replace <code>&lt;version&gt;</code> below with the version you downloaded.</p></div>
+  <div>
+    <h3 id="windows">Windows</h3>
+    <ol class="steps compact-steps">
+      <li><p>Run <code>TapTitans2Bot-Setup-&lt;version&gt;.exe</code>, or unzip <code>TapTitans2Bot-&lt;version&gt;-windows-portable.zip</code> and open the app.</p></li>
+      <li><p>The app is not code-signed. If SmartScreen says “Windows protected your PC”, click “More info”, then “Run anyway”.</p></li>
+      <li><p>If the app cannot see a Samsung phone, install Samsung’s “Samsung USB Driver for Mobile Phones”.</p></li>
+    </ol>
+    <h3 id="macos">macOS (Apple silicon)</h3>
+    <ol class="steps compact-steps">
+      <li><p>On a Mac with M1 or later, open <code>TapTitans2Bot-&lt;version&gt;-macos-arm64.dmg</code> and drag the app to Applications. Intel Macs are not supported.</p></li>
+      <li><p>The app is not notarized, so macOS blocks the first open. Try to open the app once, then open System Settings &gt; Privacy &amp; Security, scroll down and click “Open Anyway”, then confirm.</p></li>
+    </ol>
+    <h3 id="linux">Linux (x86_64)</h3>
+    <ol class="steps compact-steps">
+      <li><p>For Debian or Ubuntu, open a terminal in your downloads folder and install the .deb: <code>sudo apt install ./tap-titans2-bot_&lt;version&gt;_amd64.deb</code>.</p></li>
+      <li><p>For AppImage, make the file executable with <code>chmod +x TapTitans2Bot-&lt;version&gt;-x86_64.AppImage</code>, then run <code>./TapTitans2Bot-&lt;version&gt;-x86_64.AppImage</code>. On Ubuntu 22.04+ it may need <code>libfuse2</code> (on 24.04: <code>libfuse2t64</code>).</p></li>
+      <li><p>If the phone shows “no permissions” on Debian or Ubuntu, install Android udev rules with <code>sudo apt install android-sdk-platform-tools-common</code>, then unplug and replug the phone.</p></li>
+    </ol>
+  </div>
+</div></section>
+<section class="wrap section how-section" aria-labelledby="start-title">
+  <div><p class="eyebrow">Your first session</p><h2 id="start-title">Start auto tap</h2></div>
+  <ol class="steps">
+    <li><h3>Open the app</h3><p>Follow “First-run setup” and pick your phone.</p></li>
+    <li><h3>Open Tap Titans 2</h3><p>Open the game on your phone, then press “Start” in the desktop app.</p></li>
+    <li><h3>Try Pro</h3><p>Press “Start 24-hour trial” in the app’s Pro panel. The trial is available once per computer.</p></li>
+  </ol>
+</section>
+<section class="band panel-band" aria-labelledby="help-title"><div class="wrap faq-layout">
+  <div><p class="eyebrow">Quick checks</p><h2 id="help-title">If something goes wrong</h2></div>
+  <ul class="requirements">
+    <li><strong>Phone not found:</strong> check for a charge-only cable, USB debugging turned off, or an “Allow USB debugging?” prompt you have not accepted.</li>
+    <li><strong>Wrong phone selected:</strong> use “Change device” in the app to choose another device.</li>
+    <li><strong>Start is disabled:</strong> open “First-run setup”, complete the required prerequisites and press “Re-check”.</li>
+  </ul>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="download.html">Download</a></li>
+    <li><a href="setup.html">Setup</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="https://github.com/ShadowsTT/Tap-Titans2-Bot-Releases/releases">All releases</a></li>
+  </ul>
+  <p>Tap Titans 2 Bot is an independent tool. It is not affiliated with, endorsed by or sponsored by Game Hive. Tap Titans 2 is a trademark of its owner.</p>
+  <p>This site sets no cookies, has no analytics and collects nothing.</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shadowstt.github.io/Tap-Titans2-Bot-Releases/sitemap.xml

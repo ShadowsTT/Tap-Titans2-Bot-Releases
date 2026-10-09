@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "title": "Let your phone play Tap Titans 2 while you do something else",
+    "text": "The bot taps, casts skills, levels heroes and prestiges on your own Android phone, driven from your computer over USB.",
+    "video": "tap-skills.mp4",
+    "poster": "tap-skills.jpg"
+  },
+  "features": [
+    {"title": "Auto tap", "text": "Fast, steady taps on the titan, paced so the game keeps up.", "image": "phone-tap.webp"},
+    {"title": "Skills", "text": "Casts your skills the moment they are ready; with Pro it also buys new ones.", "image": "phone-skills.webp"},
+    {"title": "Heroes", "text": "Levels your heroes while you are away.", "image": "phone-heroes.webp"},
+    {"title": "Prestige", "text": "Prestiges on a timer; with Pro also at a stage you choose or when progress stalls.", "image": "app-settings.webp"},
+    {"title": "Panels", "text": "Collects achievements for free; with Pro also eggs, equipment, talents and event rewards.", "image": "app-dashboard.webp"},
+    {"title": "Raids", "text": "With Pro, spends your Solo Raid attacks and world portals for you.", "image": "phone-raid.webp"},
+    {"title": "Free trial", "text": "Every Pro feature free for 24 hours, started from the app.", "image": "app-pro.webp"}
+  ],
+  "plans": [
+    {"id": "trial", "name": "Free trial", "duration": "24 hours", "price": null, "blurb": "Every Pro feature for a day, once per computer."},
+    {"id": "3d", "name": "3 days", "duration": "3 days", "price": null, "blurb": "A short Pro pass."},
+    {"id": "1w", "name": "1 week", "duration": "7 days", "price": null, "blurb": "A week of Pro."},
+    {"id": "1m", "name": "1 month", "duration": "30 days", "price": null, "blurb": "A month of Pro."},
+    {"id": "lifetime", "name": "Lifetime", "duration": "For good", "price": null, "blurb": "Pro for as long as the bot exists."}
+  ],
+  "buy": {"mode": "coming_soon", "url": ""},
+  "faq": [
+    {"q": "Is the bot free?", "a": "Yes. The basic bot is free. The Pro features need the free trial or a Pro pass."},
+    {"q": "Which phones work?", "a": "Android phones with USB debugging turned on. The bot is tested on a Samsung Galaxy S8+."},
+    {"q": "Can I use one key on two computers?", "a": "A Pro key works on one computer at a time. You can move it to another computer up to three times in 30 days."},
+    {"q": "Does it spend real money?", "a": "No. It is built never to tap anything that costs real money."}
+  ],
+  "gallery": [
+    {"type": "video", "file": "solo-raid.mp4", "caption": "Solo Raid: the bot opens the raid and spends the free attacks"},
+    {"type": "video", "file": "hero-levels.mp4", "caption": "Levelling heroes from the hero list"},
+    {"type": "video", "file": "panels-tour.mp4", "caption": "Working through the upgrade panels"},
+    {"type": "image", "file": "phone-game.webp", "caption": "The bot tapping and casting skills on a real phone"},
+    {"type": "image", "file": "phone-raid-map.webp", "caption": "The Solo Raid portal map"},
+    {"type": "image", "file": "app-dashboard.webp", "caption": "The app's dashboard after a session"},
+    {"type": "image", "file": "app-settings.webp", "caption": "Prestige settings"},
+    {"type": "image", "file": "app-pro.webp", "caption": "The Pro panel and the free trial"}
+  ],
+  "updated": "2026-10-08"
+}

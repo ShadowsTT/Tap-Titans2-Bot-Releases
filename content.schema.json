@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tap Titans 2 Bot website content (content.json)",
+  "description": "Edited from the admin dashboard (/admin/website). server/site_content.py checks the same rules plus four this schema cannot say: a hero video needs a poster, the trial plan has no price, a buy URL is set only in link mode, and a gallery entry names a file of its own type.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["hero", "features", "plans", "buy", "faq", "gallery", "updated"],
+  "$defs": {
+    "media": {"type": "string", "pattern": "^([a-z0-9-]{1,48}\\.(png|jpe?g|webp|mp4))?$"},
+    "price": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["amount", "currency"],
+      "properties": {
+        "amount": {"type": "string", "pattern": "^(0|[1-9][0-9]{0,5})(\\.[0-9]{2})?$"},
+        "currency": {"type": "string", "pattern": "^[A-Z]{3}$"}
+      }
+    }
+  },
+  "properties": {
+    "hero": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "text", "video", "poster"],
+      "properties": {
+        "title": {"type": "string", "minLength": 1, "maxLength": 80},
+        "text": {"type": "string", "minLength": 1, "maxLength": 300},
+        "video": {"$ref": "#/$defs/media"},
+        "poster": {"$ref": "#/$defs/media"}
+      }
+    },
+    "features": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "text", "image"],
+        "properties": {
+          "title": {"type": "string", "minLength": 1, "maxLength": 60},
+          "text": {"type": "string", "minLength": 1, "maxLength": 300},
+          "image": {"$ref": "#/$defs/media"}
+        }
+      }
+    },
+    "plans": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "duration", "price", "blurb"],
+        "properties": {
+          "id": {"enum": ["trial", "3d", "1w", "1m", "lifetime"]},
+          "name": {"type": "string", "minLength": 1, "maxLength": 40},
+          "duration": {"type": "string", "minLength": 1, "maxLength": 40},
+          "price": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/price"}]},
+          "blurb": {"type": "string", "maxLength": 300}
+        }
+      }
+    },
+    "buy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "url"],
+      "properties": {
+        "mode": {"enum": ["coming_soon", "link"]},
+        "url": {"type": "string", "maxLength": 300, "pattern": "^(https://[A-Za-z0-9.-]+(/[^\\s\"'<>]*)?)?$"}
+      }
+    },
+    "faq": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["q", "a"],
+        "properties": {
+          "q": {"type": "string", "minLength": 1, "maxLength": 200},
+          "a": {"type": "string", "minLength": 1, "maxLength": 1000}
+        }
+      }
+    },
+    "gallery": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "file", "caption"],
+        "properties": {
+          "type": {"enum": ["image", "video"]},
+          "file": {"$ref": "#/$defs/media", "minLength": 1},
+          "caption": {"type": "string", "minLength": 1, "maxLength": 140}
+        }
+      }
+    },
+    "updated": {"type": "string", "format": "date"}
+  }
+}
