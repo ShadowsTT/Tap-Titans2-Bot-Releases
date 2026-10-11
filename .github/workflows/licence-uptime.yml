@@ -1,0 +1,58 @@
+name: Licence uptime
+
+# Checks the licence server's public health endpoint every 5 minutes from outside the Beelink and posts to Discord
+# when it goes down and when it comes back (see .github/scripts/licence-uptime.sh). It lives in this public
+# repository because Actions minutes are free here, so it costs the private repository's quota nothing.
+#
+# Owner setup: add the repository secret LICENCE_ALERT_WEBHOOK (a Discord webhook URL), then run this workflow by
+# hand with "Send a test alert" ticked to see the message arrive.
+#
+# GitHub's schedule is best effort: runs can start several minutes late. GitHub also turns schedules off in a public
+# repository after 60 days with no commits; each release commits version.json here, and GitHub emails the owner
+# before it happens, so re-enable it under Actions > Licence uptime if that email comes.
+on:
+  schedule:
+    - cron: '2-59/5 * * * *'  # off the top of the hour, when GitHub's scheduler is busiest
+  workflow_dispatch:
+    inputs:
+      test_alert:
+        description: Send a test alert to Discord instead of checking
+        type: boolean
+        default: false
+
+permissions:
+  actions: read  # to read the previous run's result
+  contents: read
+
+concurrency:
+  group: licence-uptime
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+
+      - name: Find the previous run's result
+        id: previous
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          conclusion=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow licence-uptime.yml --branch main \
+            --status completed --limit 10 --json conclusion,databaseId \
+            --jq "[.[] | select(.databaseId != $GITHUB_RUN_ID and (.conclusion == \"success\" or .conclusion == \"failure\"))][0].conclusion // \"\"") \
+            || conclusion=""
+          echo "previous run: ${conclusion:-none}"
+          echo "conclusion=$conclusion" >> "$GITHUB_OUTPUT"
+
+      - name: Check the licence server
+        env:
+          HEALTH_URL: ${{ vars.LICENCE_HEALTH_URL || 'https://tt2-licence.tailb965c.ts.net/v1/health' }}
+          PREVIOUS: ${{ steps.previous.outputs.conclusion }}
+          TEST_ALERT: ${{ inputs.test_alert || false }}
+          ALERT_WEBHOOK_URL: ${{ secrets.LICENCE_ALERT_WEBHOOK }}
+        run: .github/scripts/licence-uptime.sh
